@@ -23,8 +23,13 @@ class HomeController
     public function index(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         try {
+
+            if (array_key_exists('TZ', $_ENV) && preg_match ('/\w+\/\w+/', $_ENV['TZ'])){
+                date_default_timezone_set($_ENV['TZ']);
+            }
+
             $data = $this->twig->render('home/index.html.twig', [
-                'trailers' => $this->fetchData(),
+                'currentTime' => date('d/m/Y H:i:s')
             ]);
         } catch (\Exception $e) {
             throw new HttpBadRequestException($request, $e->getMessage(), $e);
