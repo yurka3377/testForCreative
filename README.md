@@ -1,23 +1,6 @@
+Я не смог запустить проект с родным docker-compose.yaml поэтому использовал пример docker-compose с сайта https://webshake.ru/symfony-course/razvorachivaem-symfony-prilozhenie-v-docker
+ 
+
 ### Запуск проекта
-
-```php
-cp .env.test .env
-docker-compose up --build -d
-cd app
-cp .env.test .env
-```
-
-Чтобы войти в любой из контейнеров, делаем следующее:
-```php
-docker exec -it <container_name> bash
-```
-
-Посмотреть запущенные контейнеры:
-```php
-docker ps
-```
-
-Логи контейнера:
-```php
-docker logs <container_name>
-```
+docker-compose up 
+http://localhost:8081
