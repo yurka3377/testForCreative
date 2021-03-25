@@ -27,10 +27,10 @@ class HomeController
             if (array_key_exists('TZ', $_ENV) && preg_match ('/\w+\/\w+/', $_ENV['TZ'])){
                 date_default_timezone_set($_ENV['TZ']);
             }
-
             $data = $this->twig->render('home/index.html.twig', [
                 'currentTime' => date('d/m/Y H:i:s'),
                 'className' => get_class($this),
+                'methodName' => __FUNCTION__
             ]);
         } catch (\Exception $e) {
             throw new HttpBadRequestException($request, $e->getMessage(), $e);
