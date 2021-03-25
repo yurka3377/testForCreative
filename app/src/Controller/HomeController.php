@@ -29,7 +29,8 @@ class HomeController
             }
 
             $data = $this->twig->render('home/index.html.twig', [
-                'currentTime' => date('d/m/Y H:i:s')
+                'currentTime' => date('d/m/Y H:i:s'),
+                'className' => get_class($this),
             ]);
         } catch (\Exception $e) {
             throw new HttpBadRequestException($request, $e->getMessage(), $e);
